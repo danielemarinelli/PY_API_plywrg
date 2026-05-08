@@ -1,0 +1,11 @@
+{
+    "firstname": "Nikola",
+    "lastname": "Jokic",
+    "totalprice": 1077,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-07-01",
+        "checkout": "2025-07-05"
+    },
+    "additionalneeds": "Denver Nuggets"
+}
