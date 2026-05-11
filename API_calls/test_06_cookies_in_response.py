@@ -2,7 +2,9 @@ from playwright.sync_api import Playwright
 
 
 def test_cookies_in_response(playwright:Playwright):
-    request_context=playwright.request.new_context()
+    request_context=playwright.request.new_context(
+        ignore_https_errors=True  # 🔧 This fixes the SSL issue --> unable to get local issuer certificate
+    )
 
     response=request_context.get("https://www.google.com/")
 
@@ -13,7 +15,7 @@ def test_cookies_in_response(playwright:Playwright):
     cookies=request_context.storage_state()["cookies"]
 
     for c in cookies: #usually the name does not change, but value, domain change
-        print(f"{c['name']}==>{c['value']}==>{c['domain']}==>{c['httponly']}")
+        print(f"{c['name']}==>{c['value']}==>{c['domain']}")
 
     # Cookies values are not constant
     # Check if 'AEC' cookie exists
