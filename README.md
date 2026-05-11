@@ -2,7 +2,10 @@ Step 1) Run single below command to install all the required plugins: pip instal
 
 Step 2) Install pytest playwright: pip install pytest-playwright
 
-Run tests with comand line ===> pytest API_calls
+Run tests with command line ===> pytest API_calls
 
 
 Follow the Swagger as documentation
+
+for test_09 bearer token must be generated for lines 9 and 26 ( if  expired)
+
