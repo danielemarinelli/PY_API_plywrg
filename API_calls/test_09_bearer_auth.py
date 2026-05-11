@@ -6,7 +6,7 @@ from playwright.sync_api import Playwright
 def test_bearer_token_auth_github_repos(playwright: Playwright):
      # to generate the token follow the steps:
      # a) Settings -> Developer Settings -> Personal access tokens -> Token (Classic) -> Generate new token
-     #token="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"
+     token=".................................."
      # token is passed always in headers and the response will contain all the repos details in JSON form
      request_context = playwright.request.new_context()
      response = request_context.get("https://api.github.com/user/repos",
@@ -23,7 +23,7 @@ def test_bearer_token_auth_github_repos(playwright: Playwright):
 
 def test_bearer_token_auth_github_user_info(playwright: Playwright):
      # returns the details of the user (same token as previous one)
-     #token="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"
+     token=".................................."
 
      request_context = playwright.request.new_context()
      response = request_context.get("https://api.github.com/user",
