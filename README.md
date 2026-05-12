@@ -3,7 +3,7 @@ Step 1) Run single below command to install all the required plugins: pip instal
 Step 2) Install pytest playwright: pip install pytest-playwright
 
 Run tests with command line ===> pytest API_calls
-
+uncomment the tests to run based on the groups configured in pytest.ini 
 
 Follow the Swagger as documentation
 
