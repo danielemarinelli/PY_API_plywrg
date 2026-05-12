@@ -7,6 +7,7 @@ Install dependencies
 """
 from jsonschema import validate, ValidationError
 from playwright.sync_api import sync_playwright, Playwright
+import pytest
 
 # Helper function to validate schema
 def validate_json_schema(response_json,myschema):
@@ -19,7 +20,8 @@ def validate_json_schema(response_json,myschema):
         return False
 
 
-
+@pytest.mark.sanity
+@pytest.mark.regression
 def test_validate_json_schema_one(playwright:Playwright):
     request_context = playwright.request.new_context(
         ignore_https_errors=True  # 🔧 This fixes the SSL issue --> unable to get local issuer certificate
@@ -63,7 +65,8 @@ def test_validate_json_schema_one(playwright:Playwright):
     request_context.dispose()
 
 
-
+@pytest.mark.sanity
+@pytest.mark.regression
 def test_validate_json_schema_two(playwright:Playwright):
     request_context = playwright.request.new_context()
 

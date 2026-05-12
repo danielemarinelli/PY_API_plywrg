@@ -1,8 +1,10 @@
 from playwright.sync_api import Playwright
+import pytest
 
 #5) API Key Authentication - OpenWeatherMap
 # https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 # API SWAGGER ====> https://openweathermap.org/api
+@pytest.mark.auth
 def test_api_key_auth_openweather(playwright: Playwright):
 #
      request_context = playwright.request.new_context()
@@ -24,7 +26,7 @@ def test_api_key_auth_openweather(playwright: Playwright):
 
 #6) API Key Authentication - weatherAPI
 # URL: https://api.weatherapi.com/v1/current.json
-
+#@pytest.mark.auth
 # def test_api_key_auth_weatherapi(playwright: Playwright):
 #
 #     request_context = playwright.request.new_context()

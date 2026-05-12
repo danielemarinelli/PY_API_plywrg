@@ -1,6 +1,8 @@
 from playwright.sync_api import Playwright
+import pytest
 
-
+@pytest.mark.sanity
+@pytest.mark.regression
 def test_cookies_in_response(playwright:Playwright):
     request_context=playwright.request.new_context(
         ignore_https_errors=True  # 🔧 This fixes the SSL issue --> unable to get local issuer certificate

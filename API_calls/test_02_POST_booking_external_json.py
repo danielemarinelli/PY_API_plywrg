@@ -1,6 +1,6 @@
 import json
 from playwright.sync_api import Playwright
-from pathlib import Path
+import pytest
 
 # -------------------------------------------------------------------
 # Test: Create Booking (POST request with static body from an external file)
@@ -9,6 +9,8 @@ from pathlib import Path
 # SWAGGER ONLINE ===> https://restful-booker.herokuapp.com/apidoc/index.html#api-Booking-CreateBooking
 # -------------------------------------------------------------------
 
+@pytest.mark.sanity
+@pytest.mark.post
 def test_create_booking(playwright:Playwright):
     base_url = "https://restful-booker.herokuapp.com"
 

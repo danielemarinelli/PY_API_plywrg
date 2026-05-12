@@ -47,6 +47,7 @@ global user_home   # Needed to set user home directory
 # -------------------------------------------------------------------
 # 1) Create Booking (POST)
 # -------------------------------------------------------------------
+@pytest.mark.end_to_end
 def test_create_booking(request_context):  # passing the context as argument from fixture
     """Create a new booking and validate response"""
     #data_from_json_file = read_json("testdata/post_request_body.json")
@@ -88,6 +89,7 @@ def test_create_booking(request_context):  # passing the context as argument fro
 # -------------------------------------------------------------------
 # 2) Get Booking Details (GET)
 # -------------------------------------------------------------------
+@pytest.mark.end_to_end
 def test_get_booking_by_id(request_context):
     """Get booking details using booking ID"""
     # this is an example of url to send with path param => https://restful-booker.herokuapp.com/booking/5244
@@ -104,7 +106,7 @@ def test_get_booking_by_id(request_context):
     assert "firstname" in response_body
     assert "lastname" in response_body
 
-
+@pytest.mark.end_to_end
 def test_get_booking_by_name(request_context):
     """Get bookings filtered by first and last name"""
     # this is an example of url to send with query param => https://restful-booker.herokuapp.com/booking?firstname=Josh&lastname=Allen
@@ -130,6 +132,7 @@ def test_get_booking_by_name(request_context):
     ("2024-01-15", "2024-02-20"),
     ("2024-07-01", "2025-07-05"),
 ])
+@pytest.mark.end_to_end
 def test_get_booking_by_dates(request_context,checkin_date, checkout_date):
     """Get bookings filtered by check-in and check-out dates"""
     # this is an example of url to send with query param => https://restful-booker.herokuapp.com/booking?checkin=2014-03-13&checkout=2014-05-21
@@ -152,6 +155,7 @@ def test_get_booking_by_dates(request_context,checkin_date, checkout_date):
 # -------------------------------------------------------------------
 # 3) Create Token (POST /auth) --- needed for PUT , PATCH , DELETE calls
 # -------------------------------------------------------------------
+@pytest.mark.end_to_end
 def test_create_token(request_context):
     """Create an authentication token for further operations"""
     # this is an example of url to send with path param => https://restful-booker.herokuapp.com/auth
@@ -188,6 +192,7 @@ def test_create_token(request_context):
 # -------------------------------------------------------------------
 # 4) Partial Update Booking (PATCH)  MANDATORY to PASS THE token_generated!!!
 # -------------------------------------------------------------------
+@pytest.mark.end_to_end
 def test_partial_update_booking(request_context):
     """Partially update an existing booking"""
     # this is an example of url to send with path param =>  https://restful-booker.herokuapp.com/booking/5244
@@ -215,7 +220,7 @@ def test_partial_update_booking(request_context):
         assert key in response_body
         assert response_body[key] == data_from_json_file[key]  # checking that the keys (firstname, lastname,additionalneeds) values (Luka, Doncic, LA Lakers) in the patch_file.json are same of the patch_response_body
 
-
+@pytest.mark.end_to_end
 def test_full_update_booking(request_context):
     """Update entire booking record"""
     # this is an example of url to send with path param =>  https://restful-booker.herokuapp.com/booking/5244
@@ -251,6 +256,7 @@ def test_full_update_booking(request_context):
 # -------------------------------------------------------------------
 # 6) Delete Booking (DELETE)
 # -------------------------------------------------------------------
+@pytest.mark.end_to_end
 def test_delete_booking(request_context):
     """Delete booking using auth token"""
     response = request_context.delete(

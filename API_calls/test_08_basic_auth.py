@@ -7,6 +7,8 @@ from playwright.sync_api import Playwright
 # url: https://httpbin.org/basic-auth/user/pass
 # username: user
 # password : pass
+
+@pytest.mark.auth
 def test_basic_auth_resp_body_json(playwright: Playwright):
      request_context = playwright.request.new_context()
 #     process to send user and password in basic Auth
@@ -27,6 +29,7 @@ def test_basic_auth_resp_body_json(playwright: Playwright):
 # url: http://the-internet.herokuapp.com/basic_auth
 # username: admin
 # password : admin
+@pytest.mark.auth
 def test_basic_auth_resp_body_text(playwright: Playwright):
      request_context = playwright.request.new_context()
 

@@ -1,8 +1,10 @@
 from playwright.sync_api import Playwright
+import pytest
 
 # 3) Bearer Token Authentication is used in GitHub , where gets all your details repos
 # url: https://api.github.com/user/repos
 
+@pytest.mark.auth
 def test_bearer_token_auth_github_repos(playwright: Playwright):
      # to generate the token follow the steps:
      # a) Settings -> Developer Settings -> Personal access tokens -> Token (Classic) -> Generate new token
@@ -20,7 +22,7 @@ def test_bearer_token_auth_github_repos(playwright: Playwright):
 
 # 4) Bearer Token Authentication
 # url: https://api.github.com/user
-
+@pytest.mark.auth
 def test_bearer_token_auth_github_user_info(playwright: Playwright):
      # returns the details of the user (same token as previous one)
      token="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"

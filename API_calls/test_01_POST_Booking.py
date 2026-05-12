@@ -1,5 +1,5 @@
 from playwright.sync_api import Playwright
-
+import pytest
 
 # -------------------------------------------------------------------
 # Test: Create Booking (POST request with static body)
@@ -8,6 +8,8 @@ from playwright.sync_api import Playwright
 # SWAGGER ONLINE ===> https://restful-booker.herokuapp.com/apidoc/index.html#api-Booking-CreateBooking
 # -------------------------------------------------------------------
 
+@pytest.mark.sanity
+@pytest.mark.post
 def test_create_booking(playwright: Playwright):
     base_url = "https://restful-booker.herokuapp.com"
 
