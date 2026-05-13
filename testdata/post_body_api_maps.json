@@ -1,0 +1,16 @@
+{
+  "location": {
+    "lat": -48.383494,
+    "lng": 63.427362
+  },
+  "accuracy": 50,
+  "name": "Holiday Circle",
+  "phone_number": "(+39) 344 893 3900",
+  "address": "280, side line avenue, Buffalo",
+  "types": [
+    "flag football",
+    "F_NFL"
+  ],
+  "website": "http://f_nfl.com",
+  "language": "Spanish"
+}
